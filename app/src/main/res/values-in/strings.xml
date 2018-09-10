@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Daftar Film</string>
+    <string name="kotak_pencarian">Saya mencari ...</string>
+    <string name="hint_kotak_pencarian">Masukkan nama film ...</string>
+    <string name="btn_cari">Cari</string>
+    <string name="tv_judul">Judul</string>
+    <string name="tv_deskripsi">Deskripsi</string>
+    <string name="tv_tanggal_rilis">Tanggal Rilis</string>
+    <string name="search_hint">Masukkan kata</string>
+    <string name="extend">...</string>
+    <string name="deskripsi">Deskripsi :</string>
+    <string name="navigation_drawer_open">Buka navigasi</string>
+    <string name="navigation_drawer_close">Tutup navigasi</string>
+    <string name="change_language_settings">Ganti bahasa</string>
+    <string name="search">Pencarian</string>
+    <string name="now_playing">Tayang Sekarang</string>
+    <string name="upcoming">Tayang Nanti</string>
+</resources>
