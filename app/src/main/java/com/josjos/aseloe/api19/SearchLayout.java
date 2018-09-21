@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.widget.SearchView;
 
 import com.josjos.aseloe.api19.Adapter.RecyclerViewAdapter;
+import com.josjos.aseloe.api19.Entity.FilmItems;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -93,7 +94,6 @@ public class SearchLayout extends AppCompatActivity implements LoaderManager.Loa
         if(bundle != null){
             value = bundle.getString(EXTRA_CARI);
         }
-        Log.d("Wei",value);
         return new MyAsyncTaskLoader(this,value);
     }
 

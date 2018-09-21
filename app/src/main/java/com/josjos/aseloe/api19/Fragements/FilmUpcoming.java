@@ -12,12 +12,14 @@ import android.view.ViewGroup;
 
 
     import com.josjos.aseloe.api19.Adapter.RecyclerViewAdapter;
-    import com.josjos.aseloe.api19.FilmItems;
+    import com.josjos.aseloe.api19.Entity.FilmItems;
     import com.josjos.aseloe.api19.MyAsyncTaskLoader;
     import com.josjos.aseloe.api19.R;
 
     import java.util.ArrayList;
     import java.util.Locale;
+
+    import static com.josjos.aseloe.api19.MainActivity.Upcoming;
 
 
     /**
@@ -48,8 +50,7 @@ public class FilmUpcoming extends Fragment implements LoaderManager.LoaderCallba
 
         @Override
         public Loader<ArrayList<FilmItems>> onCreateLoader(int i, Bundle bundle) {
-            Log.d("New",Upcoming + current.getDefault().getLanguage());
-            return new MyAsyncTaskLoader(getActivity(),Upcoming + current.getDefault().getCountry().toLowerCase());
+            return new MyAsyncTaskLoader(getActivity(),Upcoming + current.getDefault().getLanguage());
         }
 
         @Override

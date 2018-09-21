@@ -3,6 +3,15 @@
     package="com.josjos.aseloe.api19">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <permission
+        android:name="com.josjos.aseloe.api19.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.josjos.aseloe.api19.WRITE_DATABASE"
+        android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +28,32 @@
             </intent-filter>
         </activity>
         <activity android:name=".FilmDetil" />
-        <activity android:name=".SearchLayout"></activity>
+        <activity android:name=".SearchLayout" />
+
+        <provider
+            android:name=".Provider.FilmProvider"
+            android:authorities="com.josjos.aseloe.api19"
+            android:exported="true"
+            android:readPermission="com.josjos.aseloe.api19.READ_DATABASE"
+            android:writePermission="com.josjos.aseloe.api19.WRITE_DATABASE" />
+
+        <activity android:name=".Favorite" />
+
+        <receiver android:name=".Widgets.HomeWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/home_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".Widgets.StackWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <activity android:name=".Setting" />
     </application>
 
 </manifest>

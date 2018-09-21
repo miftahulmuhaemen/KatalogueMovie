@@ -2,6 +2,9 @@ package com.josjos.aseloe.api19;
 
 import android.support.v4.content.AsyncTaskLoader;
 import android.content.Context;
+import android.util.Log;
+
+import com.josjos.aseloe.api19.Entity.FilmItems;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.SyncHttpClient;
 import org.json.JSONArray;
@@ -57,6 +60,7 @@ public class MyAsyncTaskLoader extends AsyncTaskLoader<ArrayList<FilmItems>> {
         SyncHttpClient client = new SyncHttpClient();
         final ArrayList<FilmItems> filmItemses = new ArrayList<>();
         client.get(url, new AsyncHttpResponseHandler() {
+
             @Override
             public void onStart() {
                 super.onStart();

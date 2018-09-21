@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:key="@string/DR_Switch"
+        android:title="Daily Reminder"
+        android:summary="Every 07:00 O`clock"
+        android:defaultValue="false"/>
+
+    <SwitchPreference
+        android:key="@string/RT_Switch"
+        android:title="Release Today"
+        android:summary="Every 08:00 O`clock"
+        android:defaultValue="false"/>
+
+</PreferenceScreen>

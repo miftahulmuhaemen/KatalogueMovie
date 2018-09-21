@@ -1,5 +1,6 @@
 package com.josjos.aseloe.api19;
 import android.content.Intent;
+import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -8,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,12 +29,10 @@ public class MainActivity extends AppCompatActivity {
     ActionBarDrawerToggle toggle;
     Locale current;
 
-    static final String EXTRA_UPCOMING = "EXTRA_UPCOMING";
-    static final String EXTRA_CURRENT = "EXTRA_CURRENT";
 
-    static final String PlayingNow = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + BuildConfig.API_KEY +"&language=";
-    static final String Upcoming = "https://api.themoviedb.org/3/movie/upcoming?api_key=" + BuildConfig.API_KEY +"&language=";
-    static final String Cari = "https://api.themoviedb.org/3/search/movie?api_key=" + BuildConfig.API_KEY +"&language=";
+    public final static  String PlayingNow = "https://api.themoviedb.org/3/movie/now_playing?api_key=" + BuildConfig.API_KEY +"&language=";
+    public final static String Upcoming = "https://api.themoviedb.org/3/movie/upcoming?api_key=" + BuildConfig.API_KEY +"&language=";
+    public final static  String Cari = "https://api.themoviedb.org/3/search/movie?api_key=" + BuildConfig.API_KEY +"&language=";
 
     @BindView(R.id.viewpager) ViewPager viewPager;
     @BindView(R.id.toolbar) Toolbar toolbar;
@@ -59,14 +57,35 @@ public class MainActivity extends AppCompatActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
+
                         menuItem.setChecked(true);
+                        Intent intent;
 
                         int id = menuItem.getItemId();
+                        switch (id){
+                            case R.id.nav_search :
+                                    Intent moveDataIntent = new Intent(MainActivity.this,SearchLayout.class);
+                                    moveDataIntent.putExtra(SearchLayout.EXTRA_CARI,Cari);
+                                    startActivity(moveDataIntent);
+                                    break;
+                            case R.id.nav_home :
+                                break;
+                            case R.id.nav_fav :
+                                intent = new Intent(MainActivity.this,Favorite.class);
+                                startActivity(intent);
+                                break;
+                            case R.id.nav_setting :
+                                intent = new Intent(MainActivity.this,Setting.class);
+                                startActivity(intent);
+                                break;
+
+                        }
                         if (id == R.id.nav_search) {
                             Intent moveDataIntent = new Intent(MainActivity.this,SearchLayout.class);
                             moveDataIntent.putExtra(SearchLayout.EXTRA_CARI,Cari);
                             startActivity(moveDataIntent);
                         }
+
                         drawer.closeDrawers();
                         return true;
                     }
@@ -90,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         searchView.setQueryHint(getResources().getString(R.string.search_hint));
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
             @Override
             public boolean onQueryTextSubmit(String queryCari) {
                 Intent moveDataIntent = new Intent(MainActivity.this,SearchLayout.class);

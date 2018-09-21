@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.josjos.aseloe.api19.Adapter.RecyclerViewAdapter;
-import com.josjos.aseloe.api19.FilmItems;
+import com.josjos.aseloe.api19.Entity.FilmItems;
 import com.josjos.aseloe.api19.MyAsyncTaskLoader;
 import com.josjos.aseloe.api19.R;
 
@@ -47,7 +47,7 @@ public class FilmPlayingnow extends Fragment implements LoaderManager.LoaderCall
 
     @Override
     public Loader<ArrayList<FilmItems>> onCreateLoader(int i, Bundle bundle) {
-        return new MyAsyncTaskLoader(getActivity(),PlayingNow + current.getDefault().getCountry().toLowerCase());
+        return new MyAsyncTaskLoader(getActivity(),PlayingNow + current.getDefault().getLanguage());
     }
 
     @Override

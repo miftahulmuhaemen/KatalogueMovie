@@ -23,6 +23,13 @@ allprojects {
     }
 }
 
+ext {
+    rxjava = '2.1.9'
+    rxandroid = '2.0.1'
+    retrofitLibVersion = '2.4.0'
+    gsonConvLibVersion = '2.8.5'
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
